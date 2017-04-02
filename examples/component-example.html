@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue Template Example</title>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//unpkg.com/vue"></script>
+</head>
+<body>
+<h1>Vue Template Example</h1>
+
+<div id='container'>
+    <div id="demo">
+        <greeter :name="appMessage">
+        </greeter>
+    </div>
+</div>
+<script type="text/x-template" id="greeter">
+    <div>Hello, {{ name }}!</div>
+</script>
+
+<script>
+    Vue.component('greeter', {
+        template: '#greeter',
+        props: ['name']
+    });
+
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            appMessage: 'Bryan'
+        }
+    })
+</script>
+</body>
+</html>
